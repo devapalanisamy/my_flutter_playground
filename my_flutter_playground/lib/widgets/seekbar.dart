@@ -11,9 +11,9 @@ class CustomSeekBar extends StatelessWidget {
       body: Column(children: [
         SliderTheme(
           child: Slider(
-            value: 50,
-            max: 100,
-            min: 0,
+            value: 100.0,
+            max: 100.0,
+            min: 0.0,
             activeColor: Colors.black,
             inactiveColor: Colors.grey,
             onChanged: (double value) {},
@@ -22,7 +22,7 @@ class CustomSeekBar extends StatelessWidget {
               trackHeight: 28,
               thumbColor: Colors.transparent,
               disabledThumbColor: Colors.transparent,
-              rangeThumbShape: null),
+              thumbShape: RoundSliderThumbShape(enabledThumbRadius: 0.0)),
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
@@ -49,7 +49,20 @@ class CustomSeekBar extends StatelessWidget {
               linearStrokeCap: LinearStrokeCap.butt,
             ),
           ),
-        )
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            height: 80,
+            width: 80,
+            child: CircularProgressIndicator(
+              strokeWidth: 15,
+              backgroundColor: Colors.grey,
+              valueColor: AlwaysStoppedAnimation<Color>(Colors.blueAccent),
+              value: 0.6,
+            ),
+          ),
+        ),
       ]),
     );
   }
